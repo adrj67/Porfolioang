@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <hr class="text-danger border-2 opacity-50">
+            <hr class="border-primary border-3 opacity-75">
+            <p><h1 class="display-1">Bienvenido!</h1>
+            <p><h2>Esta usted invitado a ver el porfolio de <strong>Adrian Rojo.</strong></h2>
+                <p>oprima el boton correspondiente.</p>
+            <hr class="border-primary border-3 opacity-75">
+            <hr class="text-danger border-2 opacity-50">
+        </div>
+        <div class="col-md-12">
+        </div>
+    </div>
+    <br>
+   <form (ngSubmit) ="ver8()" id="ver8">
+    <div class="row">
+        <div class="col-md-2">
+            <input type="hidden" [(ngModel)]="usuario.nombre" [ngModelOptions]="{standalone: true}" class="form-control"><!--placeholder="i"  value="i" -->
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-2">
+            <input type="hidden" [(ngModel)]="usuario.clave" [ngModelOptions]="{standalone: true}" class="form-control"><!--placeholder="i"  value="i" -->
+        </div>
+    </div>
+    <br> 
+    <div class="row">
+        <div class="col-md-12">
+            <input class = "btn btn-warning float-end" style="margin-right: 10px" type="submit" value="Ver CV de Adrian">
+            <a href="#" (click)="logout()" style="margin-right: 10px" class="btn btn-dark float-end">Cerrar sesion</a>
+        </div>
+    </div>
+    </form>
+    <br>
+</div>
+

@@ -1,0 +1,47 @@
+header {
+    height:300px;
+    background-image: url("../../assets/images/MDPamanece2.jpg" );
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size: 90rem;
+    text-align: center;
+    padding: 10px 10px;
+  }
+
+  #tablaHeader{
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    margin-top: -300px;
+  }
+  
+  .iconos-sociales img{ 
+    transition:all 0.5s ease-out; 
+    margin-right: 20px; 
+  }
+  
+  .iconos-sociales img:hover{ 
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.1); 
+    transform:translate(0px, -5px); 
+  }
+  
+  .iconos-sociales img{ 
+    transition:all 0.5s ease-out; border-radius:50px;
+  }
+  
+  .argprog2{
+    float: left;
+    width:15%;
+    height:20%
+  }
+  
+  #Perfil:hover{
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.1);
+    transform: scale(0.9); 
+    opacity: .85;
+    transition: opacity 50ms ease-in-out 0s;
+    position: relative;
+  }
+  
+  

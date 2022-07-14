@@ -1,0 +1,14 @@
+div{
+background-color: rgb(188, 206, 240);
+}
+
+table{
+background-color: rgb(218, 222, 252);  
+}
+img{
+    float:right;
+    margin-top:5px;
+}
+p{
+    clear:right;
+}
