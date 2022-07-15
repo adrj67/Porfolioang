@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 
 export class HomeAdminComponent implements OnInit {
-  usuario:any = {nombre:'admin',clave:'admin'};
+  usuario:any = {nombre:'admin',clave:'admin'};//se que esto esta mal...
   usuarios:any =[];
   errorInicio:boolean = false;
   loading:boolean = false;
