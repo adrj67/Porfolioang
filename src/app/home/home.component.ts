@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
   }
 
   buscarDatosServicio():Observable<any>{
-    return this.http.get<any>("http://localhost:8080/datos/buscar/usuario/fkIdUsuario" + this.usuario.id).pipe(
+    return this.http.get<any>("https://app-porfoliospring.herokuapp.com/datos/buscar/usuario/fkIdUsuario" + this.usuario.id).pipe(
       catchError(e=>"Error home.component") 
     )
   }
@@ -87,7 +87,7 @@ export class HomeComponent implements OnInit {
     var httpOptions = {
       headers:new HttpHeaders ({'Content-Type':'application/json'})
     }
-    return this.http.post<any> ("http://localhost:8080/datos/guardar", this.dato, httpOptions);
+    return this.http.post<any> ("https://app-porfoliospring.herokuapp.com/datos/guardar", this.dato, httpOptions);
   }
 
   finalizarCrearDato(dato:any){
@@ -113,7 +113,7 @@ export class HomeComponent implements OnInit {
   }
 
   borrarDatosServicio(id:any) {
-    return this.http.delete("http://localhost:8080/datos/eliminar/"+id);
+    return this.http.delete("https://app-porfoliospring.herokuapp.com/datos/eliminar/"+id);
   }
 //*********************    ESTUDIOS    *****************************
   agregarEstudios(){
@@ -127,7 +127,7 @@ export class HomeComponent implements OnInit {
   }
 
   buscarEstudiosServicio():Observable<any>{
-    return this.http.get<any>("http://localhost:8080/estudios/buscarest/usuario/fkIdUsuario" + this.usuario.id).pipe(
+    return this.http.get<any>("https://app-porfoliospring.herokuapp.com/estudios/buscarest/usuario/fkIdUsuario" + this.usuario.id).pipe(
       catchError(e=>"Error home.component") 
     )
   }
@@ -152,7 +152,7 @@ export class HomeComponent implements OnInit {
     var httpOptions = {
       headers:new HttpHeaders ({'Content-Type':'application/json'})
     }
-    return this.http.post<any> ("http://localhost:8080/estudios/guardar", this.estudio, httpOptions);
+    return this.http.post<any> ("https://app-porfoliospring.herokuapp.com/estudios/guardar", this.estudio, httpOptions);
   }
 
   finalizarCrearEstudio(estudio:any){
@@ -178,7 +178,7 @@ export class HomeComponent implements OnInit {
   }
 
   borrarEstudiosServicio(id:any) {
-    return this.http.delete("http://localhost:8080/estudios/eliminar/"+id);
+    return this.http.delete("https://app-porfoliospring.herokuapp.com/estudios/eliminar/"+id);
   }  
 //*********************    TRABAJOS    *****************************
   agregarTrabajos(){
@@ -192,7 +192,7 @@ export class HomeComponent implements OnInit {
   }
 
   buscarTrabajosServicio():Observable<any>{
-  return this.http.get<any>("http://localhost:8080/trabajos/buscar/usuario/fkIdUsuario" + this.usuario.id).pipe(
+  return this.http.get<any>("https://app-porfoliospring.herokuapp.com/trabajos/buscar/usuario/fkIdUsuario" + this.usuario.id).pipe(
     catchError(e=>"Error home.component") 
   )
   }
@@ -217,7 +217,7 @@ export class HomeComponent implements OnInit {
     var httpOptions = {
       headers:new HttpHeaders ({'Content-Type':'application/json'})
     }
-    return this.http.post<any> ("http://localhost:8080/trabajos/guardar", this.trabajo, httpOptions);
+    return this.http.post<any> ("https://app-porfoliospring.herokuapp.com/trabajos/guardar", this.trabajo, httpOptions);
   }
 
   finalizarCrearTrabajo(trabajo:any){
@@ -243,7 +243,7 @@ export class HomeComponent implements OnInit {
   }
 
   borrarTrabajosServicio(id:any) {
-    return this.http.delete("http://localhost:8080/trabajos/eliminar/"+id);
+    return this.http.delete("https://app-porfoliospring.herokuapp.com/trabajos/eliminar/"+id);
   }
 
 }

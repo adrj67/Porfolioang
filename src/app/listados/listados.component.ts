@@ -45,7 +45,7 @@ export class ListadosComponent implements OnInit {
   }
 
   buscarDatosServicio():Observable<any>{
-    return this.http.get<any>("http://localhost:8080/datos/buscar/usuario/fkIdUsuario" + this.usuario.id).pipe(// this.usuario.id
+    return this.http.get<any>("https://app-porfoliospring.herokuapp.com/datos/buscar/usuario/fkIdUsuario" + this.usuario.id).pipe(// this.usuario.id
       catchError(e=>"Error listados.component")
     )
   }
@@ -67,7 +67,7 @@ export class ListadosComponent implements OnInit {
     }
 
   borrarDatosServicio (id:any) {
-    return this.http.delete("http://localhost:8080/datos/eliminar/"+alert("borro base de datos"+ id )).pipe(
+    return this.http.delete("https://app-porfoliospring.herokuapp.com/datos/eliminar/"+alert("borro base de datos"+ id )).pipe(
     catchError(e=>"Error listados.component") 
     );
   }
