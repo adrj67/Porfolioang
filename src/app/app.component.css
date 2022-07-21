@@ -44,13 +44,10 @@ footer{
 .iconos-sociales img{ 
     transition:all 0.5s ease-out; 
     margin-right: 20px; 
+    border-radius:50px;
 }
   
 .iconos-sociales img:hover{ 
     box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.1); 
     transform:translate(0px, -5px); 
-}
-  
-.iconos-sociales img{ 
-    transition:all 0.5s ease-out; border-radius:50px;
 }

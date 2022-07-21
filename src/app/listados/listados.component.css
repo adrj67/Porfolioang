@@ -7,7 +7,9 @@ header {
   background-size: 90rem;
   text-align: center;
   margin: auto;
-  width: 100%
+  width: 100%;
+  font-weight: bolder;
+  max-width: 1920px;
 }
 
 #tablaHeader{
@@ -19,22 +21,31 @@ header {
 
 .iconos-sociales img{ 
   transition:all 0.5s ease-out; 
-  margin-right: 20px; 
+  margin-right: 2%; 
+  margin-top:10%;
+  text-align:center;
+  display: initial;
+  align-content: flex-end;
+  vertical-align: middle;
+  border-radius:50px;
 }
-
+  
 .iconos-sociales img:hover{ 
-  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.1); 
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1); 
   transform:translate(0px, -5px); 
-}
-
-.iconos-sociales img{ 
-  transition:all 0.5s ease-out; border-radius:50px;
 }
 
 .argprog2{
   float: left;
   width:15%;
-  height:20%
+  height:auto;
+}
+
+#Perfil {
+  width:10%;
+  height:auto;
+  float: right;
+  position: relative;
 }
 
 #Perfil:hover{

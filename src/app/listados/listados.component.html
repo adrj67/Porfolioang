@@ -24,18 +24,14 @@
         <br>
         <figure>
             <img  src= "../../assets/images/fotoPerfil.jpg" alt="Foto de perfil de Adrian Rojo"
-                width="150" height="180" id="Perfil" class="rounded float-end" (click)="openPopup()"
-                title="Haga click aqui" >
+                 id="Perfil"  (click)="openPopup()" title="Haga click aqui" >
         </figure>  
     </div>   
     <img class="argprog2" src="../../assets/images/ArgProg2.png" alt="Argentina Programa #YoProgramo" >
     <div class="container-fluid">
-        <table class="table table-responsive" id="tablaHeader" name="tablaHeader">
-            <tr *ngFor = "let dato of usuario.datosList">
-                <td> <h1> CV de {{dato.nombre | uppercase }}</h1> </td>
-            </tr>
-        </table>
-        <br>
+        <h1>CV de ADRIAN ROJO</h1>
+    </div>
+    <div class="container-fluid">
         <div class="iconos-sociales">
             <a href="https://github.com/adrj67" target="_blank"><img loading="lazy" alt="Sígueme en GitHub" height="35" width="35" src="../../assets/icon/github-icono.png" title="Sígueme en GitHub"/></a>
             <a href="https://wa.me/5492234001010?text=Hola!!" target="_blank"><img loading="lazy" alt="Sígueme en WhatsApp" height="35" width="35" src="../../assets/icon/whatsapp-icono.png" title="Sígueme en WhatsApp"/></a>

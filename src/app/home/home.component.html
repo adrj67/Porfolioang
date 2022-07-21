@@ -5,6 +5,8 @@
                 width="75" height="90" >
            <h1>Bienvenido Administrador!!</h1>
            <h3>Puede comenzar a trabajar en su porfolio</h3>
+           <br>
+           <br>
            <hr class="text-danger border-2 opacity-50">
            <hr class="border-primary border-3 opacity-75">
         </div>
@@ -25,236 +27,248 @@
         </div>
     </div>
 <!--DATOS-->
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Mis Datos: <button class="btn btn-success" (click)= "agregar()">Nuevo</button></h2>
-        </div>
-    </div>
-    <form (ngSubmit)="crearDato()" id="crear" *ngIf="crear">
-        <br>
+<div class="table-responsive">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <input type="number" [(ngModel)]="dato.id" [ngModelOptions]="{standalone: true}" placeholder="ID de Datos" class="form-control" > 
-                <p>Ingresando el ID puede modificar un registro existente.<br>
-                   Para un registro nuevo deje el campo en blanco.</p>
+            <div class="col-md-12">
+                <h2>Mis Datos: <button class="btn btn-success" (click)= "agregar()">Nuevo</button></h2>
             </div>
         </div>
-        <br>
-        <div class="row">
-            <div class="col-md-6">
-                <input type="text" [(ngModel)]="dato.nombre" [ngModelOptions]="{standalone: true}" placeholder="Nombre y Apellido" class="form-control" required>
+        <form (ngSubmit)="crearDato()" id="crear" *ngIf="crear">
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="number" [(ngModel)]="dato.id" [ngModelOptions]="{standalone: true}" placeholder="ID de Datos" class="form-control" > 
+                    <p>Ingresando el ID puede modificar un registro existente.<br>
+                    Para un registro nuevo deje el campo en blanco.</p>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-6">
-                <input type="text" [(ngModel)]="dato.fechaNac" [ngModelOptions]="{standalone: true}" placeholder="Fecha Nacimiento" class="form-control" required >
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" [(ngModel)]="dato.nombre" [ngModelOptions]="{standalone: true}" placeholder="Nombre y Apellido" class="form-control" required>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-6">
-                <input type="text" [(ngModel)]="dato.domicilio" [ngModelOptions]="{standalone: true}" placeholder="Domicilio" class="form-control"  required>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" [(ngModel)]="dato.fechaNac" [ngModelOptions]="{standalone: true}" placeholder="Fecha Nacimiento" class="form-control" required >
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-6">
-                <input type="text" [(ngModel)]="dato.correo" [ngModelOptions]="{standalone: true}" placeholder="Correo" class="form-control"  required>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" [(ngModel)]="dato.domicilio" [ngModelOptions]="{standalone: true}" placeholder="Domicilio" class="form-control"  required>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-6">
-                <input type="text" [(ngModel)]="dato.telefono" [ngModelOptions]="{standalone: true}" placeholder="Telefono" class="form-control"  required>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" [(ngModel)]="dato.correo" [ngModelOptions]="{standalone: true}" placeholder="Correo" class="form-control"  required>
+                </div>
             </div>
-        </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" [(ngModel)]="dato.telefono" [ngModelOptions]="{standalone: true}" placeholder="Telefono" class="form-control"  required>
+                </div>
+            </div>
+            <div class="row">
+                <div class ="col-md-12">
+                    <input type="submit" class="btn btn-primary float-end" value="Crear Datos"> 
+                </div>
+            </div>
+        </form>
+        <br>
         <div class="row">
             <div class ="col-md-12">
-                <input type="submit" class="btn btn-primary float-end" value="Crear Datos"> 
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Id de los datos</th>
+                            <th>Nombre completo</th>
+                            <th>Fecha Nacimiento</th>
+                            <th>Direccion</th>
+                            <th>Correo</th>
+                            <th>Telefono</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor = "let dato of usuario.datosList" >
+                            <td> {{dato.id}} </td>
+                            <td> {{dato.nombre}} </td>
+                            <td> {{dato.fechaNac}} </td>
+                            <td> {{dato.domicilio}} </td>
+                            <td> {{dato.correo}} </td>
+                            <td> {{dato.telefono}} </td>
+                            <td> 
+                                <button class="btn btn-danger btn-sm" (click)="borrarDatos(dato.id)" >Borrar</button> 
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </form>
-    <br>
-    <div class="row">
-        <div class ="col-md-12">
-            <table class="table">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Id de los datos</th>
-                        <th>Nombre completo</th>
-                        <th>Fecha Nacimiento</th>
-                        <th>Direccion</th>
-                        <th>Correo</th>
-                        <th>Telefono</th>
-                        <th>Eliminar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor = "let dato of usuario.datosList" >
-                        <td> {{dato.id}} </td>
-                        <td> {{dato.nombre}} </td>
-                        <td> {{dato.fechaNac}} </td>
-                        <td> {{dato.domicilio}} </td>
-                        <td> {{dato.correo}} </td>
-                        <td> {{dato.telefono}} </td>
-                        <td> 
-                            <button class="btn btn-danger btn-sm" (click)="borrarDatos(dato.id)" >Borrar</button> 
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
-    <br>
+</div>
+<br>
 <!-- ESTUDIOS  -->
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Mis Estudios: <button class="btn btn-success" (click)= "agregarEstudios()">Nuevo</button></h2>
-        </div>
-    </div>
-    <br>
-    <form (ngSubmit)="crearEstudio()" id="crearEst" *ngIf="crearEst">
-        <div class ="row">
-            <div class ="col-md-6">
-                <input type="number" [(ngModel)]="estudio.id"[ngModelOptions]="{standalone: true}" placeholder="ID"class="form-control">
-                <p>Ingresando el ID puede modificar un registro existente.<br>
-                   Para un registro nuevo deje el campo en blanco.</p>
+<div class="table-responsive">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Mis Estudios: <button class="btn btn-success" (click)= "agregarEstudios()">Nuevo</button></h2>
             </div>
         </div>
         <br>
-        <div class="row">
-            <div class="col-md-6">
-                <input type="text" [(ngModel)]="estudio.institucion" [ngModelOptions]="{standalone: true}" placeholder="Institucion" class="form-control" required>
+        <form (ngSubmit)="crearEstudio()" id="crearEst" *ngIf="crearEst">
+            <div class ="row">
+                <div class ="col-md-6">
+                    <input type="number" [(ngModel)]="estudio.id"[ngModelOptions]="{standalone: true}" placeholder="ID"class="form-control">
+                    <p>Ingresando el ID puede modificar un registro existente.<br>
+                    Para un registro nuevo deje el campo en blanco.</p>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-6">
-                <input type="text" [(ngModel)]="estudio.anio" [ngModelOptions]="{standalone: true}" placeholder="Año" class="form-control" required>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" [(ngModel)]="estudio.institucion" [ngModelOptions]="{standalone: true}" placeholder="Institucion" class="form-control" required>
+                </div>
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-6">
-                <input type="text" [(ngModel)]="estudio.titulo" [ngModelOptions]="{standalone: true}" placeholder="Titulo" class="form-control" required>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" [(ngModel)]="estudio.anio" [ngModelOptions]="{standalone: true}" placeholder="Año" class="form-control" required>
+                </div>
             </div>
-        </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" [(ngModel)]="estudio.titulo" [ngModelOptions]="{standalone: true}" placeholder="Titulo" class="form-control" required>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class ="col-md-12">
+                    <input type="submit" class="btn btn-primary float-end" value="Crear Estudios"> 
+                </div>
+            </div>
+        </form>
         <br>
         <div class="row">
             <div class ="col-md-12">
-                <input type="submit" class="btn btn-primary float-end" value="Crear Estudios"> 
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Id Estudios</th>
+                            <th>Institucion</th>
+                            <th>Año</th>
+                            <th>Titulo</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor = "let estudio of usuario.estudiosList" >
+                            <td> {{estudio.id}} </td>
+                            <td> {{estudio.institucion}} </td>
+                            <td> {{estudio.anio}} </td>
+                            <td> {{estudio.titulo}} </td>
+                            <td>
+                                <button class="btn btn-danger btn-sm" (click)="borrarEstudios(estudio.id)" >Borrar</button> 
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </form>
-    <br>
-    <div class="row">
-        <div class ="col-md-12">
-            <table class="table">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Id Estudios</th>
-                        <th>Institucion</th>
-                        <th>Año</th>
-                        <th>Titulo</th>
-                        <th>Eliminar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor = "let estudio of usuario.estudiosList" >
-                        <td> {{estudio.id}} </td>
-                        <td> {{estudio.institucion}} </td>
-                        <td> {{estudio.anio}} </td>
-                        <td> {{estudio.titulo}} </td>
-                        <td>
-                            <button class="btn btn-danger btn-sm" (click)="borrarEstudios(estudio.id)" >Borrar</button> 
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
+</div>
 <!-- TRABAJOS  -->
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Experiencia Laboral: <button class="btn btn-success" (click)= "agregarTrabajos()">Nuevo</button></h2>
-        </div>
-    </div>
-    <br>
-    <form (ngSubmit)="crearTrabajo()" id="crearTrab" *ngIf="crearTrab">
-        <div class ="row">
-            <div class ="col-md-6">
-                <input type="number" [(ngModel)]="trabajo.id"[ngModelOptions]="{standalone: true}" placeholder="ID"class="form-control">
-                <p>Ingresando el ID puede modificar un registro existente.<br>
-                   Para un registro nuevo deje el campo en blanco.</p>
+<div class="table-responsive">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Experiencia Laboral: <button class="btn btn-success" (click)= "agregarTrabajos()">Nuevo</button></h2>
             </div>
         </div>
         <br>
-        <div class="row">
-            <div class="col-md-6">
-                <input type="text" [(ngModel)]="trabajo.empresa" [ngModelOptions]="{standalone: true}" placeholder="Empresa" class="form-control" required>
+        <form (ngSubmit)="crearTrabajo()" id="crearTrab" *ngIf="crearTrab">
+            <div class ="row">
+                <div class ="col-md-6">
+                    <input type="number" [(ngModel)]="trabajo.id"[ngModelOptions]="{standalone: true}" placeholder="ID"class="form-control">
+                    <p>Ingresando el ID puede modificar un registro existente.<br>
+                        Para un registro nuevo deje el campo en blanco.</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" [(ngModel)]="trabajo.empresa" [ngModelOptions]="{standalone: true}" placeholder="Empresa" class="form-control" required>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" [(ngModel)]="trabajo.desde" [ngModelOptions]="{standalone: true}" placeholder="Desde" class="form-control" required>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" [(ngModel)]="trabajo.hasta" [ngModelOptions]="{standalone: true}" placeholder="Hasta" class="form-control" required>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" [(ngModel)]="trabajo.tareas" [ngModelOptions]="{standalone: true}" placeholder="Tareas" class="form-control" required>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" [(ngModel)]="trabajo.logo" [ngModelOptions]="{standalone: true}" placeholder="ubicacion del archivo" class="form-control" required>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class ="col-md-12">
+                    <input type="submit" class="btn btn-primary float-end" value="Crear Trabajo"> 
+                </div>
+            </div>
+            </form>
+            <br>
+            <div class="row">
+                <div class ="col-md-12">
+                    <table class="table">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Id Trabajo</th>
+                                <th>Empresa</th>
+                                <th>Desde</th>
+                                <th>Hasta</th>
+                                <th>Tareas</th>
+                                <th>Logo</th>
+                                <th>Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor = "let trabajo of usuario.trabajosList" >
+                                <td> {{trabajo.id}} </td>
+                                <td> {{trabajo.empresa}} </td>
+                                <td> {{trabajo.desde}} </td>
+                                <td> {{trabajo.hasta}} </td>
+                                <td> {{trabajo.tareas}} </td>
+                                <td> {{trabajo.logo}}</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm" (click)="borrarTrabajos(trabajo.id)" >Borrar</button> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-        <br>
-        <div class="row">
-            <div class="col-md-6">
-                <input type="text" [(ngModel)]="trabajo.desde" [ngModelOptions]="{standalone: true}" placeholder="Desde" class="form-control" required>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-6">
-                <input type="text" [(ngModel)]="trabajo.hasta" [ngModelOptions]="{standalone: true}" placeholder="Hasta" class="form-control" required>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-6">
-                <input type="text" [(ngModel)]="trabajo.tareas" [ngModelOptions]="{standalone: true}" placeholder="Tareas" class="form-control" required>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-6">
-                <input type="text" [(ngModel)]="trabajo.logo" [ngModelOptions]="{standalone: true}" placeholder="ubicacion del archivo" class="form-control" required>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class ="col-md-12">
-                <input type="submit" class="btn btn-primary float-end" value="Crear Trabajo"> 
-            </div>
-        </div>
-    </form>
-    <br>
-    <div class="row">
-        <div class ="col-md-12">
-            <table class="table">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Id Trabajo</th>
-                        <th>Empresa</th>
-                        <th>Desde</th>
-                        <th>Hasta</th>
-                        <th>Tareas</th>
-                        <th>Logo</th>
-                        <th>Eliminar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor = "let trabajo of usuario.trabajosList" >
-                        <td> {{trabajo.id}} </td>
-                        <td> {{trabajo.empresa}} </td>
-                        <td> {{trabajo.desde}} </td>
-                        <td> {{trabajo.hasta}} </td>
-                        <td> {{trabajo.tareas}} </td>
-                        <td> {{trabajo.logo}}</td>
-                        <td>
-                            <button class="btn btn-danger btn-sm" (click)="borrarTrabajos(trabajo.id)" >Borrar</button> 
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>    
+    </div>  
 </div>
